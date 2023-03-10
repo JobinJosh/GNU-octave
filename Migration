@@ -1,0 +1,54 @@
+octave:23> x=[2018 2018 2019 2020 2021 2022]';By using octave code as follows
+octave:42> x=[2017 2018 2019 2020 2021 2022]';
+octave:43> y=[23300 28335 40483 42345 47567 55663]';
+octave:44> %y=ae^bx
+octave:44> hold on;grid on;
+octave:45> plot(x,y,'ob')
+octave:46> %lny=lna+bx
+octave:46> b=log(y)
+b =
+   10.056
+   10.252
+   10.609
+   10.654
+   10.770
+   10.927
+>>> A=[ones(6,1)x]
+                ^
+octave:47> A=[ones(6,1) x]
+A =
+      1   2017
+      1   2018
+      1   2019
+      1   2020
+      1   2021
+      1   2022
+
+octave:48> An=A'*A
+An =
+
+   6.0000e+00   1.2117e+04
+   1.2117e+04   2.4470e+07
+
+octave:49> bn=A'*b;
+octave:50> An=A'*A;
+octave:51> xn=An\bn
+xn =
+
+  -332.9669
+     0.1701
+
+octave:52> xx=linspace(2017,2022);
+octave:53> y1=exp(xn(1)).*exp(xn(2).*xx);
+octave:54> plot(xx,y1,'r')
+octave:55> yfitpoint=exp(xn(1)).*exp(xn(2).*x)
+yfitpoint =
+
+   2.4817e+04
+   2.9419e+04
+   3.4874e+04
+   4.1340e+04
+   4.9006e+04
+   5.8092e+04
+
+octave:56> err=yfitpoint-y
